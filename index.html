@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #konachi_image {
+            width: 100%;
+        }
+        button {
+            margin: 1rem;
+            padding: 1rem;
+            background-color: #36a3ec;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    hello world
+    <h1>hello world</h1>
+    <button onclick="toggleKonachi()">Toggle Konachi</button>
+    <img src="https://pbs.twimg.com/media/Fv7UmjwaIAA77Si?format=jpg&name=large" id="konachi_image" alt="konachi" srcset="">
+    <script>
+        function toggleKonachi() {
+            const konachi = document.getElementById('konachi_image');
+            if (konachi.style.display === 'none') {
+                konachi.style.display = 'block';
+            } else {
+                konachi.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
