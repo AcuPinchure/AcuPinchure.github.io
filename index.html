@@ -29,6 +29,27 @@
                 konachi.style.display = 'none';
             }
         }
+
+        function parallax(mouseX, mouseY) {
+            const konachi = document.getElementById('konachi_image');
+            const konachiWidth = konachi.width;
+            const konachiHeight = konachi.height;
+            const konachiX = konachi.getBoundingClientRect().x;
+            const konachiY = konachi.getBoundingClientRect().y;
+            const konachiCenterX = konachiX + konachiWidth / 2;
+            const konachiCenterY = konachiY + konachiHeight / 2;
+            const konachiOffsetX = mouseX - konachiCenterX;
+            const konachiOffsetY = mouseY - konachiCenterY;
+            const konachiOffsetRatioX = konachiOffsetX / konachiWidth;
+            const konachiOffsetRatioY = konachiOffsetY / konachiHeight;
+            konachi.style.transform = `translate(${konachiOffsetRatioX * 20}px, ${konachiOffsetRatioY * 20}px)`;
+        }
+
+        window.onload = () => {
+            document.addEventListener('mousemove', (e) => {
+                parallax(e.clientX, e.clientY);
+            });
+        }
     </script>
 </body>
 </html>
